@@ -31,26 +31,26 @@
 
 <div class="row" id="secondrow">
     <div class="col-lg-4 col-sm-12">
-        <a href="about.php" class="btn btn-secondary">About</a>
+        <a href="about.php" class="btn btn-secondary btn-big">About</a>
     </div>
     <div class="col-lg-4 col-sm-12">
-        <button type="button" class="btn btn-secondary">Contact</button>
+        <button type="button" class="btn btn-secondary btn-big">Contact</button>
     </div>
     <div class="col-lg-4 col-sm-12">
-        <button type="button" class="btn btn-secondary">Discography</button>
+        <button type="button" class="btn btn-secondary btn-big">Discography</button>
     </div>
 
 </div>
 
 <div class="row" id="thirdrow">
     <div class="col-lg-4 col-sm-12">
-        <button type="button" class="btn btn-secondary">Music</button>
+        <button type="button" class="btn btn-secondary btn-big">Music</button>
     </div>
     <div class="col-lg-4 col-sm-12">
-        <button type="button" class="btn btn-secondary">Tours</button>
+        <button type="button" class="btn btn-secondary btn-big">Tours</button>
     </div>
     <div class="col-lg-4 col-sm-12">
-        <button type="button" class="btn btn-secondary">Gallery</button>
+        <button type="button" class="btn btn-secondary btn-big">Gallery</button>
     </div>
 
 </div>
