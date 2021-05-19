@@ -42,6 +42,7 @@
 #thirdrow {
     font-size: 3rem;
     text-align: center;
+    padding-bottom: 100px;
 }
 
 .central  {
@@ -52,7 +53,6 @@
 }
 
 .first_row {
-    height: 200px;
     text-align: center;
     font-size: 7rem;
 }
@@ -76,4 +76,8 @@
 }
 .central {
     background-color: rgba(0, 0, 0, 0.7);
+}
+
+.row_contact {
+    padding-bottom: 200px;
 }

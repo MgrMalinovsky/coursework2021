@@ -8,7 +8,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styling.css">
+    <link rel="stylesheet" href="../styling.css?version=51">
 
     <title>New</title>
 </head>
@@ -34,7 +34,7 @@
         <a href="about.php" class="btn btn-secondary btn-big">About</a>
     </div>
     <div class="col-lg-4 col-sm-12">
-        <button type="button" class="btn btn-secondary btn-big">Contact</button>
+        <a href="contact.php" class="btn btn-secondary btn-big">Contact</a>
     </div>
     <div class="col-lg-4 col-sm-12">
         <button type="button" class="btn btn-secondary btn-big">Discography</button>
@@ -47,15 +47,22 @@
         <button type="button" class="btn btn-secondary btn-big">Music</button>
     </div>
     <div class="col-lg-4 col-sm-12">
-        <button type="button" class="btn btn-secondary btn-big">Tours</button>
+        <a href="tours.php" class="btn btn-secondary btn-big">Tours</a>
     </div>
     <div class="col-lg-4 col-sm-12">
         <button type="button" class="btn btn-secondary btn-big">Gallery</button>
     </div>
 
+
+
+</div>
+        <div class="row" id="fourthrow">
+            <div class="col-lg-8 col-sm-12">
+            </div>
+            <div class="col-lg-4 col-sm-12 text-center">
+                <a href="../admin/admin_main.php" type="button" class="btn btn-primary btn-big">Go to admin</a>
+            </div>
+
+        </div>
 </div>
 
-    </div>
-</div>
-
-<?php

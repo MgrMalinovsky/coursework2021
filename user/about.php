@@ -1,5 +1,5 @@
 <?php
-include_once 'database.php';
+include_once '../php/database_about.php';
 $result = mysqli_query($conn,"SELECT * FROM musicians");
 ?>
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ $result = mysqli_query($conn,"SELECT * FROM musicians");
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styling.css">
+    <link rel="stylesheet" type="text/css" href="../styling.css?version=51">
 
     <title>New</title>
 </head>

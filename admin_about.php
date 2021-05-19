@@ -29,6 +29,10 @@ $result = mysqli_query($conn,"SELECT * FROM musicians");
             document.getElementById(`mode`).value = "edit";
             document.getElementById(`item_id`).value = id;
         }
+        function delete_mode(id) {
+            document.getElementById(`item_id`).value = id;
+
+        }
     </script>
     <title>New</title>
 </head>
@@ -95,7 +99,10 @@ if (mysqli_num_rows($result) > 0) {
                             <span id="name_<?php echo $row['id']; ?>_info_short"><?php echo $row["info_short"];?></span>
                         </div>
                         <div class="col-2">
-                            <button class="btn btn-danger">Delete</button>
+                            <form method="post" action="delete_musicians.php">
+                            <button class="btn btn-danger" type="submit" name="delete">Delete</button>
+                                <input type="hidden" name="item_id" value="<?php echo $row['id']; ?>"/>
+                            </form>
                         </div>
                     </div>
                     <div class="row third_level">

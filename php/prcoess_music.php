@@ -1,18 +1,19 @@
 <?php
-include_once 'database.php';
+$path = "../php/database_about.php";
+include_once($path);
 if(isset($_POST['save']))
 {
     $mode = $_POST['mode'];
     $id = $_POST['item_id'];
 
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
-    $info_short = $_POST['info_short'];
-    $email = $_POST['email'];
+    $event = $_POST['event'];
+    $city = $_POST['city'];
+    $date = $_POST['date'];
+    $short_info = $_POST['short_info'];
 
     if ($mode == 'add') {
-        $sql = "INSERT INTO musicians (first_name,last_name,info_short,email)
-        VALUES ('$first_name','$last_name','$info_short','$email')";
+        $sql = "INSERT INTO tours (event,city,date,short_info)
+        VALUES ('$event','$city','$date','$short_info')";
         if (mysqli_query($conn, $sql)) {
             echo "New record created successfully !";
         } else {
@@ -23,7 +24,7 @@ if(isset($_POST['save']))
     }
 
     else if ($mode == 'edit') {
-        $sql = "UPDATE musicians SET first_name = '$first_name', last_name = '$last_name', info_short = '$info_short',email = '$email' WHERE id = '$id'";
+        $sql = "UPDATE tours SET event = '$event', city = '$city', date = '$date',info_short = '$short_info' WHERE id = '$id'";
         if (mysqli_query($conn, $sql)) {
             echo "Record modified successfully !";
         } else {
@@ -33,6 +34,7 @@ if(isset($_POST['save']))
         mysqli_close($conn);
     }
 
-    header("Location: admin.php");
+    header("Location: ../admin/admin_tours.php");
 }
-?>
+
+
