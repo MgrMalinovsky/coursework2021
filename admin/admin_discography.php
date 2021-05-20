@@ -1,7 +1,7 @@
 <?php
 $path = "../php/database_about.php";
 include_once($path);
-$result = mysqli_query($conn,"SELECT * FROM music");
+$result = mysqli_query($conn,"SELECT * FROM discography");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,15 +16,11 @@ $result = mysqli_query($conn,"SELECT * FROM music");
     <link rel="stylesheet" href="../styling.css?version=51">
     <script>
         function copyToForm(id) {
-            const event = document.getElementById(`name_${id}_event`).innerText;
-            const city = document.getElementById(`name_${id}_city`).innerText;
-            const date = document.getElementById(`name_${id}_date`).innerText;
-            const short_info = document.getElementById(`name_${id}_info_short`).innerText;
+            const album = document.getElementById(`name_${id}_album`).innerText;
+            const titles = document.getElementById(`name_${id}_titles`).innerText;
             
-            document.getElementById(`event`).value = event;
-            document.getElementById(`city`).value = city;
-            document.getElementById(`date`).value = date;
-            document.getElementById(`short_info`).value = short_info;
+            document.getElementById(`album`).value = album;
+            document.getElementById(`titles`).value = titles;
             
 
             document.getElementById(`mode`).value = "edit";
@@ -38,24 +34,25 @@ $result = mysqli_query($conn,"SELECT * FROM music");
     <div class="col-2">
         <a href="admin_main.php" type="button" class="btn btn-primary back">Back</a>
     </div>
-    <div class="col-8 main_sign text-black">Edit music</div>
+    <div class="col-8 main_sign text-white">Our discography</div>
     <div class="col-2"></div>
 
 </div>
     <div class="container">
         <div class="card mt-4">
             <div class="card-body">
-                <form method="post" action="../php/process_music.php" enctype="multipart/form-data">
+                <form method="post" action="../php/process_discography.php">
 
                     <div class="form-group">
-                        <label for="title">Title</label>
-                        <input type="text" class="form-control" id="title" name="title">
+                        <label for="album">Album</label>
+                        <input type="text" class="form-control" id="album" name="album">
                     </div>
 
                     <div class="form-group">
-                        <label for="file">Music file</label>
-                        <input type="file" class="form-control" id="file" name="file">
+                        <label for="titles">Titles</label>
+                        <textarea class="form-control" rows="10" id="titles" name="titles"></textarea>
                     </div>
+
                     <input type="hidden" id="mode" name="mode" value="add"/>
                     <input type="hidden" id="item_id" name="item_id"/>
 
@@ -70,28 +67,35 @@ if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_array($result)) {
 ?>
         <div class="row main" id="name_<?php echo $row['id']; ?>">
-            <div class="col-2 col-sm-2"></div>
+            <div class="col-2"></div>
                 <div class="col-lg-8 col-sm-12 text-white central">
                     <div class="row first_level">
-                        <div class="col-12" style="text-align: center;">
-                            <form method="post" action="../php/delete_music.php">
-                                <div class="row mb-4">
-                                    <div class="col-10">
-                                        <?php echo $row['title']?>
-                                    </div>
-                                    <div class="col-2">
-                                        <button class="btn btn-danger" type="submit" name="delete">Delete</button>
-                                        <input type="hidden" name="item_id" value="<?php echo $row['id']; ?>"/>
-                                    </div>
-                                </div>
-                            </form>
-                            <audio controls>
-                                <source src="../music_upload/<?php echo $row['file_name'];?>" type="audio/mpeg">
-                                Your browser does not support the audio element.
-                            </audio>
+                        <div class="col-2">
+                            Album:
                         </div>
-                    <div class="col-2 col-sm-2"></div>
-                </div>
+                        <div class="col-lg-8 col-sm-2 info">
+                            <span id="name_<?php echo $row['id']; ?>_album"><?php echo $row["album"];?></span>
+                        </div>
+                        <div class="col-2">
+                            <a href="#top" class="btn btn-primary" onclick="copyToForm(<?php echo $row['id']; ?>)">Edit</a>
+                        </div>
+                    </div>
+                    <div class="row second_level">
+                        <div class="col-2">
+                            Titles:
+                        </div>
+                        <div class="col-lg-8 col-sm-2 info">
+                        <pre id="name_<?php echo $row['id']; ?>_titles"><?php echo $row["titles"];?></pre>
+                        </div>
+                        <div class="col-2">
+                            <form method="post" action="../php/delete_discography.php">
+                            <button class="btn btn-danger" type="submit" name="delete">Delete</button>
+                                <input type="hidden" name="item_id" value="<?php echo $row['id']; ?>"/>
+                            </form>
+                        </div>
+                    </div>
+                <div class="col-2"></div>
+            </div>
         </div>
 <?php
         $i++;

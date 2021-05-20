@@ -1,6 +1,6 @@
 <?php
 include_once '../php/database_about.php';
-$result = mysqli_query($conn,"SELECT * FROM music");
+$result = mysqli_query($conn,"SELECT * FROM discography");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,14 +17,15 @@ $result = mysqli_query($conn,"SELECT * FROM music");
     <title>New</title>
 </head>
 
+
 <body>
 <div class="wallpaper">
 <div class="grey">
-        <div class="row first_row row_contact">
+        <div class="row first_row">
     <div class="col-2">
         <a href="home.php" type="button" class="btn btn-primary back">Back</a>
     </div>
-    <div class="col-8 main_sign text-white">Contact info and social media</div>
+    <div class="col-8 main_sign text-white">Our discography</div>
     <div class="col-2"></div>
 
 </div>
@@ -33,16 +34,25 @@ if (mysqli_num_rows($result) > 0) {
     $i=0;
     while($row = mysqli_fetch_array($result)) {
 ?>
-        <div class="row main" id="name_<?php echo $row; ?>">
+        <div class="row main" id="name_<?php echo $row['id']; ?>">
             <div class="col-2 col-sm-2"></div>
                 <div class="col-lg-8 col-sm-12 text-white central">
-                    <div class="row first_level">
-                        <div class="col-12" style="text-align: center;">
-                            <h3 class="mb-4"><?php echo $row['title']?></h3>
-                            <audio controls>
-                                <source src="../music_upload/<?php echo $row['file_name'];?>" type="audio/mpeg">
-                                Your browser does not support the audio element.
-                            </audio>
+                    <div class="row first_level mb-4">
+                        <div class="col-2 col-sm-2">
+                            Album:
+                        </div>
+                        <div class="col-lg-8 col-sm-2 info">
+                            <?php echo $row["album"];?>
+                        </div>
+                    </div>
+                        <div class="row second_level">
+                            <div class="col-2 col-sm-2">
+                                Titles:
+                            </div>
+                            <div class="col-lg-8 col-sm-2 info">
+                                <?php echo str_replace("\n", '<br/>', $row["titles"]);?>
+                            </div>
+
                         </div>
                     <div class="col-2 col-sm-2"></div>
                 </div>

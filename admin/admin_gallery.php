@@ -65,50 +65,21 @@ if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_array($result)) {
 ?>
         <div class="row main" id="name_<?php echo $row['id']; ?>">
-            <div class="col-2"></div>
+            <div class="col-2 col-sm-2"></div>
                 <div class="col-lg-8 col-sm-12 text-white central">
-                    <div class="row first_level">
-                        <div class="col-2">
-                            Event name:
-                        </div>
-                        <div class="col-lg-8 col-sm-2 info">
-                            <span id="name_<?php echo $row['id']; ?>_event"><?php echo $row["event"];?></span>
-                        </div>
-                        <div class="col-2">
-                            <a href="#top" class="btn btn-primary" onclick="copyToForm(<?php echo $row['id']; ?>)">Edit</a>
-                        </div>
+                <div class="col-2 mb-4">
+                    <form method="post" action="../php/delete_gallery.php">
+                    <button class="btn btn-danger" type="submit" name="delete">Delete</button>
+                        <input type="hidden" name="item_id" value="<?php echo $row['id']; ?>"/>
+                    </form>
+                </div>
+                <div class="row first_level">
+                    <div class="col-12" style="text-align: center;">
+                        <img style="max-height: 80vh; max-width: 100%" src="../gallery_upload/<?php echo $row['file_name'];?>"/>
                     </div>
-                    <div class="row second_level">
-                        <div class="col-2">
-                            City:
-                        </div>
-                        <div class="col-lg-8 col-sm-2 info">
-                            <span id="name_<?php echo $row['id']; ?>_city"><?php echo $row["city"];?></span>
-                        </div>
-                        <div class="row second_level">
-                            <div class="col-2">
-                                Date:
-                            </div>
-                            <div class="col-lg-8 col-sm-2 info">
-                                <span id="name_<?php echo $row['id']; ?>_date"><?php echo $row["date"];?></span>
-                            </div>
-                        <div class="col-2">
-                            <form method="post" action="../php/delete_tours.php">
-                            <button class="btn btn-danger" type="submit" name="delete">Delete</button>
-                                <input type="hidden" name="item_id" value="<?php echo $row['id']; ?>"/>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="row third_level">
-                        <div class="col-2">
-                            Short info:
-                        </div>
-                        <div class="col-lg-8 col-sm-2 info">
-                            <span id="name_<?php echo $row['id']; ?>_info_short"><?php echo $row["short_info"];?></span>
-                        </div>
-                    </div>
-                <div class="col-2"></div>
+                <div class="col-2 col-sm-2"></div>
             </div>
+                
         </div>
 <?php
         $i++;

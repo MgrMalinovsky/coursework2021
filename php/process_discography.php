@@ -6,14 +6,12 @@ if(isset($_POST['save']))
     $mode = $_POST['mode'];
     $id = $_POST['item_id'];
 
-    $event = $_POST['event'];
-    $city = $_POST['city'];
-    $date = $_POST['date'];
-    $short_info = $_POST['short_info'];
+    $album = $_POST['album'];
+    $titles = $_POST['titles'];
 
     if ($mode == 'add') {
-        $sql = "INSERT INTO tours (event,city,date,short_info)
-        VALUES ('$event','$city','$date','$short_info')";
+        $sql = "INSERT INTO discography (album,titles)
+        VALUES ('$album','$titles')";
         if (mysqli_query($conn, $sql)) {
             echo "New record created successfully !";
         } else {
@@ -24,7 +22,7 @@ if(isset($_POST['save']))
     }
 
     else if ($mode == 'edit') {
-        $sql = "UPDATE tours SET event = '$event', city = '$city', date = '$date',info_short = '$short_info' WHERE id = '$id'";
+        $sql = "UPDATE discography SET album = '$album', titles = '$titles' WHERE id = '$id'";
         if (mysqli_query($conn, $sql)) {
             echo "Record modified successfully !";
         } else {
@@ -34,7 +32,7 @@ if(isset($_POST['save']))
         mysqli_close($conn);
     }
 
-    header("Location: ../admin/admin_tours.php");
+    header("Location: ../admin/admin_discography.php");
 }
 
 

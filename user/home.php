@@ -37,20 +37,20 @@
         <a href="contact.php" class="btn btn-secondary btn-big">Contact</a>
     </div>
     <div class="col-lg-4 col-sm-12">
-        <button type="button" class="btn btn-secondary btn-big">Discography</button>
+        <a href="discography.php" class="btn btn-secondary btn-big">Discography</a>
     </div>
 
 </div>
 
 <div class="row" id="thirdrow">
     <div class="col-lg-4 col-sm-12">
-        <button type="button" class="btn btn-secondary btn-big">Music</button>
+        <a href="music.php" class="btn btn-secondary btn-big">Music</a>
     </div>
     <div class="col-lg-4 col-sm-12">
         <a href="tours.php" class="btn btn-secondary btn-big">Tours</a>
     </div>
     <div class="col-lg-4 col-sm-12">
-        <button type="button" class="btn btn-secondary btn-big">Gallery</button>
+        <a href="gallery.php" class="btn btn-secondary btn-big">Gallery</a>
     </div>
 
 

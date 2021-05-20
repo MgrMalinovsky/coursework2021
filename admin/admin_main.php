@@ -1,3 +1,12 @@
+<?php 
+if (!isset($_SERVER['PHP_AUTH_USER']) || $_SERVER['PHP_AUTH_USER'] !== 'admin' || $_SERVER['PHP_AUTH_PW'] !== '123456') {
+    header('WWW-Authenticate: Basic realm="My Realm"');
+    header('HTTP/1.0 401 Unauthorized');
+    echo '<img src="../png/monke-student.png"/>';
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,19 +45,19 @@
           <a href="admin_contact.php" class="btn btn-secondary btn-big">Contact</a>
       </div>
       <div class="col-lg-4 col-sm-12">
-        <button type="button" class="btn btn-secondary btn-big">Discography</button>
+        <a href="admin_discography.php" class="btn btn-secondary btn-big">Discography</a>
       </div>
 
     </div>
 
     <div class="row" id="thirdrow">
       <div class="col-lg-4 col-sm-12">
-        <button type="button" class="btn btn-secondary btn-big">Music</button>
+        <a href="admin_music.php" class="btn btn-secondary btn-big">Music</a>
       </div>
       <div class="col-lg-4 col-sm-12">
           <a href="admin_tours.php" class="btn btn-secondary btn-big">Tours</a>      </div>
       <div class="col-lg-4 col-sm-12">
-        <button type="button" class="btn btn-secondary btn-big">Gallery</button>
+        <a href="admin_gallery.php" class="btn btn-secondary btn-big">Gallery</a>
       </div>
 
     </div>

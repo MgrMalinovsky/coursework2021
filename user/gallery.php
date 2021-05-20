@@ -1,6 +1,6 @@
 <?php
 include_once '../php/database_about.php';
-$result = mysqli_query($conn,"SELECT * FROM contact");
+$result = mysqli_query($conn,"SELECT * FROM gallery");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,38 +37,9 @@ if (mysqli_num_rows($result) > 0) {
             <div class="col-2 col-sm-2"></div>
                 <div class="col-lg-8 col-sm-12 text-white central">
                     <div class="row first_level">
-                        <div class="col-2 col-sm-2">
-                            Artist:
+                        <div class="col-12" style="text-align: center;">
+                            <img style="max-height: 80vh; max-width: 100%" src="../gallery_upload/<?php echo $row['file_name'];?>"/>
                         </div>
-                        <div class="col-lg-8 col-sm-2 info">
-                            <?php echo $row["fullname"];
-                           ?>
-                        </div>
-                    </div>
-                        <div class="row second_level">
-                            <div class="col-2 col-sm-2">
-                                Website:
-                            </div>
-                            <div class="col-lg-8 col-sm-2 info">
-                                <?php echo $row["website"];?>
-                            </div>
-                        </div>
-                    <div class="row second_level">
-                        <div class="col-2 col-sm-2">
-                            Facebook:
-                        </div>
-                        <div class="col-lg-8 col-sm-2 info">
-                            <?php echo $row["facebook"];?>
-                        </div>
-                    </div>
-                    <div class="row second_level">
-                        <div class="col-2 col-sm-2">
-                            Instagram:
-                        </div>
-                        <div class="col-lg-8 col-sm-2 info">
-                            <?php echo $row["instagram"];?>
-                        </div>
-                    </div>
                     <div class="col-2 col-sm-2"></div>
                 </div>
         </div>

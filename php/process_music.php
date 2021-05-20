@@ -5,12 +5,13 @@ if(isset($_POST['save']))
 {
     $mode = $_POST['mode'];
     $id = $_POST['item_id'];
+    $title = $_POST['title'];
 
     $file = rand(1000,100000)."-".$_FILES['file']['name'];
     $file_loc = $_FILES['file']['tmp_name'];
     $file_size = $_FILES['file']['size'];
     $file_type = $_FILES['file']['type'];
-    $folder="../gallery_upload/";
+    $folder="../music_upload/";
 
     /* new file size in KB */
     $new_size = $file_size/1024;
@@ -22,13 +23,12 @@ if(isset($_POST['save']))
 
     $final_file=str_replace(' ','-',$new_file_name);
 
-
     if ($mode == 'add') {
 
         if (move_uploaded_file($file_loc,$folder.$final_file)) {
 
-            $sql = "INSERT INTO gallery (file_name,type,size) 
-        VALUES('$final_file','$file_type','$new_size')";
+            $sql = "INSERT INTO music (title,file_name,type,size) 
+        VALUES('$title','$final_file','$file_type','$new_size')";
             if (mysqli_query($conn, $sql)) {
                 echo "New record created successfully !";
             } else {
@@ -49,7 +49,7 @@ if(isset($_POST['save']))
     }
 
     else if ($mode == 'edit') {
-        $sql = "UPDATE gallery SET file_name = '$final_file', type = '$file_type', size = '$new_size' WHERE id = '$id'";
+        $sql = "UPDATE music SET title = '$title', file_name = '$final_file', type = '$file_type', size = '$new_size' WHERE id = '$id'";
         if (mysqli_query($conn, $sql)) {
             echo "Record modified successfully !";
         } else {

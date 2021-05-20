@@ -5,7 +5,7 @@ if(isset($_POST['delete'])) {
 
     $id = $_POST['item_id'];
 
-    $sql = "delete FROM music WHERE id = '$id'";
+    $sql = "delete FROM discography WHERE id = '$id'";
 
     if (mysqli_query($conn, $sql)) {
         echo "Record modified successfully !";
@@ -15,5 +15,5 @@ if(isset($_POST['delete'])) {
     }
     mysqli_close($conn);
 
-    header("Location: ../admin/admin_music.php");
+    header("Location: ../admin/admin_discography.php");
 }

@@ -1,6 +1,6 @@
 <?php
 $servername='localhost';
-$username='root';
+$username='mrrain';
 $password='';
 $dbname = "music_table";
 $conn=mysqli_connect($servername,$username,$password,$dbname);
